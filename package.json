@@ -1,0 +1,36 @@
+{
+  "name": "starwarsdb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nss-run test",
+    "test:cov": "nss-run test:cov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franckLdx/StarWarsDB.git"
+  },
+  "author": "F. Ledoux",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/franckLdx/StarWarsDB/issues"
+  },
+  "homepage": "https://github.com/franckLdx/StarWarsDB#readme",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^3.2.0",
+    "nedb-promise": "^2.0.1",
+    "nss-run": "^0.2.1",
+    "nyc": "^10.1.2",
+    "sinon": "^2.1.0"
+  },
+  "dependencies": {
+    "events-to-any-promise": "^1.0.2",
+    "fs-promise": "^2.0.1",
+    "swapi-stream": "^1.0.1"
+  },
+  "engines": {
+    "node": ">=7.0.0"
+  }
+}
