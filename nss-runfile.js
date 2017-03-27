@@ -1,9 +1,10 @@
 const  { task, taskGroup, runTask, run } = require('nss-run');
 
-task('test', () => {
-  return run('mocha ./test/**Test.js');
+task('test', async () => {
+  return run('mocha test/**/*-test.js');
 });
 
-task('test:cov', () => {
-  return run('nyc npm t report --reporter=html --reporter=text');
+task('test:cov', async () => {
+  await runTask('test');
+  return run('nyc report --reporter=html');
 })
