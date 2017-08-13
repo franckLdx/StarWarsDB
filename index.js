@@ -2,7 +2,7 @@
 
 const os = require('os');
 const path = require('path');
-const fs = require('fs-promise');
+const fs = require('fs-extra');
 
 //const Films = require('./lib/films');
 //const People = require('./lib/people');

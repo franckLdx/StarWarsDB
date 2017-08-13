@@ -1,9 +1,9 @@
 'use strict';
 
-const Datastore = require('../../lib/data-store');
+const Datastore = require('../../lib/db/data-store');
 
 const assert = require('assert');
-const fs = require('fs-promise');
+const fs = require('fs-extra');
 const os = require('os');
 const path = require('path');
 const sinon = require('sinon');

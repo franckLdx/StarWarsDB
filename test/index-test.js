@@ -3,7 +3,7 @@
 const StarWars = require('../index').StarWarsDB;
 
 const assert = require('assert');
-const fs = require('fs-promise');
+const fs = require('fs-extra');
 const os = require('os');
 const path = require('path');
 const sinon = require('sinon');

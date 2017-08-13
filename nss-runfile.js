@@ -1,10 +1,10 @@
 const  { task, taskGroup, runTask, run } = require('nss-run');
 
 task('test', async () => {
-  return run('mocha test/**/*-test.js');
+  await run('mocha --recursive test/**/*-test.js', {canFail: true});
 });
 
 task('test:cov', async () => {
   await runTask('test');
-  return run('nyc report --reporter=html');
+  await run('nyc --reporter=text --reporter=html npm test');
 })
