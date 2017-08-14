@@ -22,7 +22,7 @@ describe('Datastore tests', () => {
     sandbox.restore();
   })
 
-  it('Should create an empty db', async() => {
+  it('Should create an empty db', async () => {
 
   });
 });
