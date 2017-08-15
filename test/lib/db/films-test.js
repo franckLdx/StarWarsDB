@@ -3,13 +3,13 @@
 const assert = require('assert');
 const sinon = require('sinon');
 
-describe('Species tests', () => {
+describe('Films tests', () => {
   let sandbox;
-  let species;
+  let films
 
   before(() => {
-    const db = require('..//db').loadDB();
-    species = db.species;
+    const db = require('../../db').loadDB();
+    films = db.films;
   });
 
   beforeEach(() => {
@@ -21,8 +21,8 @@ describe('Species tests', () => {
 
   it('reset tests', async function() {
     this.timeout(30000);
-    await species.reset();
-    const count = await species.count();
-    assert(count === 37);
+    await films.reset();
+    const count = await films.count();
+    assert(count === 7);
   });
 });

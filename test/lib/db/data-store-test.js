@@ -1,6 +1,6 @@
 'use strict';
 
-const Datastore = require('../../lib/db/data-store');
+const Datastore = require('../../../lib/db/data-store');
 
 const assert = require('assert');
 const fs = require('fs-extra');
@@ -22,7 +22,7 @@ describe('Datastore tests', () => {
     sandbox.restore();
   })
 
-  it('Should create an empty db', async () => {
+  it('Reset should work', async () => {
 
   });
 });

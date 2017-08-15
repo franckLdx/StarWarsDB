@@ -3,13 +3,13 @@
 const assert = require('assert');
 const sinon = require('sinon');
 
-describe('Planets tests', () => {
+describe('Starships tests', () => {
   let sandbox;
-  let planets
+  let starships;
 
   before(() => {
-    const db = require('..//db').loadDB();
-    planets = db.planets;
+    const db = require('../../db').loadDB();
+    starships = db.starships;
   });
 
   beforeEach(() => {
@@ -21,8 +21,8 @@ describe('Planets tests', () => {
 
   it('reset tests', async function() {
     this.timeout(30000);
-    await planets.reset();
-    const count = await planets.count();
-    assert(count === 61);
+    await starships.reset();
+    const count = await starships.count();
+    assert(count === 37);
   });
 });

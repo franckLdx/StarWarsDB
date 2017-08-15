@@ -27,6 +27,7 @@
     "sinon": "^3.2.0"
   },
   "dependencies": {
+    "debug": "^3.0.0",
     "events-to-any-promise": "^1.0.2",
     "fs-extra": "^4.0.1",
     "swapi-stream": "^2.0.0"
