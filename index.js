@@ -22,7 +22,7 @@ async function main() {
   const dbDdir = join(homedir(), '.StarWarsDB');
 
   const db = await loadDB(dbDdir);
-  await db.reset();
+  //await db.reset();
   const app = await createApp({
     url: '/api/starWars',
     db,
