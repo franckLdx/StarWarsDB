@@ -1,24 +1,36 @@
 'use strict';
 
-const os = require('os');
-const path = require('path');
-const fs = require('fs-extra');
+const { homedir } = require('os');
+const { join } = require('path');
 
-//const Films = require('./lib/films');
-//const People = require('./lib/people');
+const http = require('http');
 
-exports.StarWarsDB = class {
-  constructor(dir = path.join(os.homedir(), '.StarWarsDB')) {
-    this._dbDir = dir;
-    fs.ensureDirSync(dir);
-  }
-/*
-  getFilms() {
-    return new Films(this._dbDir);
-  }
+const { loadDB } = require('./lib/db');
+const { createApp } = require('./lib/graphql/app');
 
-  getPeople() {
-    return new People(this._dbDir);
-  }
-*/
+function startServer ({port, app}) {
+  return new Promise((resolve, reject) => {
+    const actualPort = port || 8080;
+    const server = http.createServer(app);
+    server.listen(actualPort);
+    server.once('listening', () => resolve(server));
+    server.once('error', err => reject(err));
+  });
 }
+
+async function main() {
+  const dbDdir = join(homedir(), '.StarWarsDB');
+
+  const db = await loadDB(dbDdir);
+  await db.reset();
+  const app = await createApp({
+    url: '/api/starWars',
+    db,
+    graphiql: true
+  });
+  const server = await startServer({port: 8080, app: app});
+  console.log(`GraphQL listening at ${server.address().port}`);
+}
+
+main()
+  .catch(err => console.error(err));
