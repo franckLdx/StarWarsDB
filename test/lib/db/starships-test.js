@@ -7,8 +7,8 @@ describe('Starships tests', () => {
   let sandbox;
   let starships;
 
-  before(() => {
-    const db = require('../../db').loadDB();
+  before(async () => {
+    const db = await require('../../db').loadDB();
     starships = db.starships;
   });
 

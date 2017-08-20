@@ -7,8 +7,8 @@ describe('Vehicles tests', () => {
   let sandbox;
   let vehicles;
 
-  before(() => {
-    const db = require('../../db').loadDB();
+  before(async () => {
+    const db = await require('../../db').loadDB();
     vehicles = db.vehicles;
   });
 

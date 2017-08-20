@@ -7,8 +7,8 @@ describe('DB', () => {
   let db;
   let sandbox;
 
-  before(() => {
-    db = require('../../db').loadDB();
+  before(async () => {
+    db = await require('../../db').loadDB();
   });
 
   beforeEach(() => {

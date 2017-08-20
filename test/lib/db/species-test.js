@@ -7,8 +7,8 @@ describe('Species tests', () => {
   let sandbox;
   let species;
 
-  before(() => {
-    const db = require('../../db').loadDB();
+  before(async () => {
+    const db = await require('../../db').loadDB();
     species = db.species;
   });
 
