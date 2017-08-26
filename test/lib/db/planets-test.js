@@ -20,9 +20,19 @@ describe('Planets tests', () => {
   })
 
   it('reset tests', async function() {
-    this.timeout(30000);
+    this.timeout(60000);
     await planets.reset();
     const count = await planets.count();
-    assert(count === 61);
+    assert.ok(count === 61);
+  });
+
+  it('findByName', async () => {
+    const name = 'Coruscant';
+    const expectedResult = [{foo: 'bar'}];
+    const mock = sandbox.mock(planets);
+    mock.expects('findBy').once().withExactArgs('name', name).returns(expectedResult);
+    const actualResult = await planets.findByName(name);
+    assert.deepStrictEqual(expectedResult, actualResult);
+    mock.verify();
   });
 });

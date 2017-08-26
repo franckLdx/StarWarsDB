@@ -28,14 +28,14 @@
   },
   "dependencies": {
     "debug": "^3.0.0",
-    "events-to-any-promise": "^1.0.2",
     "express": "^4.15.4",
     "express-graphql": "^0.6.7",
     "fs-extra": "^4.0.1",
     "graphql": "^0.10.5",
+    "istanbul": "^0.4.5",
     "swapi-stream": "^2.0.0"
   },
   "engines": {
-    "node": ">=7.0.0"
+    "node": ">=8.0.0"
   }
 }

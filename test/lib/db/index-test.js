@@ -19,7 +19,7 @@ describe('DB', () => {
   })
 
   it('should reset all resources', async function () {
-    this.timeout(30000);
+    this.timeout(60000);;
     const spies = [db.films, db.people, db.planets, db.species, db.vehicles, db.starships].map(
       dbResource => sandbox.spy(dbResource, 'reset')
     )

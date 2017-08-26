@@ -20,17 +20,17 @@ describe('People tests', () => {
   })
 
   it('reset', async function() {
-    this.timeout(30000);
+    this.timeout(60000);
     await people.reset();
     const count = await people.count();
-    assert(count === 87);
+    assert.ok(count === 87);
   });
 
   it('findByName', async () => {
     const name = 'double';
     const expectedResult = {foo: 'bar'};
     const mock = sandbox.mock(people);
-    mock.expects('find').once().withExactArgs({name: new RegExp(name, 'i')}).returns(expectedResult);
+    mock.expects('findBy').once().withExactArgs('name', name).returns(expectedResult);
     const actualResult = await people.findByName(name);
     assert.deepStrictEqual(expectedResult, actualResult);
     mock.verify();

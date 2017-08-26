@@ -20,10 +20,10 @@ describe('Films tests', () => {
   })
 
   it('reset', async function() {
-    this.timeout(30000);
+    this.timeout(120000);
     await films.reset();
     const count = await films.count();
-    assert(count === 7);
+    assert.ok(count === 7);
   });
 
   it('findByEpisodeId', async () => {
@@ -39,7 +39,7 @@ describe('Films tests', () => {
     const title = 'May the force be with you';
     const expectedResult = {foo: 'bar'};
     const mock = sandbox.mock(films);
-    mock.expects('find').once().withExactArgs({title: {$regex: new RegExp(title, 'i')}}).returns(expectedResult);
+    mock.expects('findBy').once().withExactArgs('title', title).returns(expectedResult);
     const actualResult = await films.findByTitle(title);
     assert.deepStrictEqual(expectedResult, actualResult);
     mock.verify();

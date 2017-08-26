@@ -6,5 +6,5 @@ task('test', async () => {
 
 task('test:cov', async () => {
   await runTask('test');
-  await run('nyc --reporter=text --reporter=html npm test');
+  await run('nyc --reporter=text --reporter=html --timeout=30000 npm test');
 })
