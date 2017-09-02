@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/franckLdx/StarWarsDB#readme",
   "devDependencies": {
-    "assert": "^1.4.1",
     "mocha": "^3.2.0",
     "nedb-promise": "^2.0.1",
     "nss-run": "^0.2.1",
