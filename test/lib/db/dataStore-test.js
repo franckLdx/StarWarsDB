@@ -67,9 +67,10 @@ describe('Datastore tests', () => {
 
   it('reset: insert failed', async () => {
     _dbMock.expects('remove').once().resolves();
+    _dbMock.expects('insert').exactly(7).rejects('no no');
     let actualError;
     try {
-      await dataStore.reset('dummy', data => data);
+      await dataStore.reset(FILMS, data => data);
     } catch (err) {
       actualError = err;
     }
