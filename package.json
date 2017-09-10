@@ -6,6 +6,7 @@
   "scripts": {
     "test": "nss-run test",
     "test:unit": "nss-run test:unit",
+    "test:func": "nss-run test:func",
     "test:cov": "nss-run test:cov"
   },
   "repository": {
