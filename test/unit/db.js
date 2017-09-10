@@ -1,5 +1,5 @@
 
-const Db = require('../lib/db');
+const Db = require('../../lib/db');
 
 const os = require('os');
 const path = require('path');

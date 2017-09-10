@@ -1,6 +1,6 @@
 'use strict';
 
-const Datastore = require('../../../lib/db/dataStore');
+const Datastore = require('../../../../lib/db/dataStore');
 
 const assert = require('assert');
 const {ensureDirSync, emptyDirSync, removeSync}  = require('fs-extra');
