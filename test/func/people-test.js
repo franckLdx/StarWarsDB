@@ -1,7 +1,7 @@
 const { doRequest , checkOk } = require('./root-test');
 const assert = require('assert');
 
-describe.only('People query tests', () => {
+describe('People query tests', () => {
   it('people list', async () => {
     const response = await doRequest('{people {name,birth_year,eye_color,gender,hair_color,height,mass,skin_color}}');
     checkOk(response);
