@@ -1,7 +1,7 @@
 const { doRequest , checkOk } = require('./root-test');
 const assert = require('assert');
 
-describe.only('Films query tests', () => {
+describe('Films query tests', () => {
   it('Films list', async () => {
     const response = await doRequest('{films{title, episode_id, opening_crawl, director, release_date}}');
     checkOk(response);
