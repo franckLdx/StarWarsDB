@@ -16,7 +16,7 @@ describe.only('People query tests', () => {
       assert.deepStrictEqual(response.body.data.peopleByName[0].name, "Luke Skywalker");
     });
 
-    it('get a list ob people', async () => {
+    it('get a list of people', async () => {
       const response = await doRequest('{peopleByName(name: "b"){name}}');
       checkOk(response);
       assert.deepStrictEqual(response.body.data.peopleByName.length, 19);
