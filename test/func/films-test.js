@@ -22,10 +22,24 @@ describe.only('Films query tests', () => {
       assert.deepStrictEqual(response.body.data.filmsByTitle.length, 7);
     });
 
-    it('search a  wrong title', async () => {
+    it('search a wrong title', async () => {
       const response = await doRequest('{filmsByTitle(title:"the empire is the winner"){episode_id}}');
       checkOk(response);
       assert.deepStrictEqual(response.body.data.filmsByTitle.length, 0);
     });
   });
+
+  describe('filmByEpisodeId', () => {
+    it('get a film', async () => {
+      const response = await doRequest('{filmByEpisodeId(id:4) {title}}');
+      checkOk(response);
+      assert.deepStrictEqual(response.body.data.filmByEpisodeId.title, "A New Hope");
+    });
+
+    it('search a wrong episode id', async () => {
+      const response = await doRequest('{filmByEpisodeId(id:99) {title}}');
+      assert.deepStrictEqual(response.body.data.filmByEpisodeId, null);
+    });
+  });
+
 });
