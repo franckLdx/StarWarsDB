@@ -5,7 +5,12 @@ async function doTest(dir='.') {
 }
 
 task('test', async () => {
-  await doTest();
+  try {
+    await doTest();
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
 });
 
 task('test:unit', async () => {
@@ -17,6 +22,11 @@ task('test:func', async () => {
 });
 
 task('test:cov', async () => {
-  await runTask('test');
-  await run('nyc --reporter=text --reporter=html --timeout=30000 npm test');
+  try {
+    await runTask('test');
+    await run('nyc --reporter=text --reporter=html --timeout=30000 npm test');
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
 })
