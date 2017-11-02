@@ -14,6 +14,7 @@ describe('Datastore tests', () => {
   let sandbox;
   let dataStore;
   let _dbMock;
+  let _nedbMock;
 
   before(() => {
     ensureDirSync(DIR);
@@ -27,6 +28,7 @@ describe('Datastore tests', () => {
   beforeEach(() => {
     sandbox = sinon.sandbox.create();
     _dbMock = sandbox.mock(dataStore._db);
+    _nedbMock = sandbox.mock(dataStore._db.nedb);
   })
 
   afterEach(() => {
@@ -88,10 +90,12 @@ describe('Datastore tests', () => {
 
   it('findAll', async () => {
     const expectedResult = [{id:1}, {id:2}];
-    _dbMock.expects('find').once().withExactArgs({}).resolves(expectedResult);
+    _nedbMock.expects('find').once().withExactArgs({}).returns(
+      { exec: cb => cb(null, expectedResult) }
+    );
     const actualResult = await dataStore.findAll();
     assert.deepStrictEqual(expectedResult, actualResult);
-    _dbMock.verify();
+    _nedbMock.verify();
   });
 
   it('find', async () => {

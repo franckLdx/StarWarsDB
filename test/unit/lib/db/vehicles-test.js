@@ -26,6 +26,11 @@ describe('Vehicles tests', () => {
     assert.ok(count === 39);
   });
 
+  it('findAll', async function() {
+    const found = await vehicles.findAll();
+    assert.deepStrictEqual(found.length, 39);
+  });
+
   it('findByName with unknown name', async function() {
     const found = await vehicles.findByName("azerty");
     assert.deepStrictEqual(found, []);
