@@ -9,7 +9,9 @@ const {tmpdir} = require('os');
 const {join} = require('path');
 const sinon = require('sinon');
 
-describe('Datastore tests', () => {
+describe('Datastore tests', function () {
+  this.timeout(10000);
+
   const DIR = join(tmpdir(), 'datastoreTest');
   let sandbox;
   let dataStore;

@@ -20,18 +20,18 @@
   },
   "homepage": "https://github.com/franckLdx/StarWarsDB#readme",
   "devDependencies": {
-    "mocha": "^4.0.1",
+    "mocha": "^5.0.1",
     "nss-run": "^0.2.1",
-    "nyc": "^11.3.0",
-    "shelljs": "^0.7.7",
-    "sinon": "^4.1.0"
+    "nyc": "^11.4.1",
+    "shelljs": "^0.8.1",
+    "sinon": "^4.3.0"
   },
   "dependencies": {
     "debug": "^3.1.0",
     "express": "^4.16.2",
     "express-graphql": "^0.6.11",
-    "fs-extra": "^4.0.2",
-    "graphql": "^0.11.7",
+    "fs-extra": "^5.0.0",
+    "graphql": "^0.13.1",
     "istanbul": "^0.4.5",
     "nedb-promise": "^2.0.1",
     "supertest": "^3.0.0",
